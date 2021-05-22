@@ -13,7 +13,10 @@ from amplify_infra.amplify_infra_stack import AmplifyInfraStack
 
 
 app = core.App()
-AmplifyInfraStack(app, "AmplifyInfraStack",
+AmplifyInfraStack(app, "AmplifyInfraStack",env={
+    
+    'account':'132260253285',
+    'region': 'us-east-2'}
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
