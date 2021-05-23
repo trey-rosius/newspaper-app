@@ -73,6 +73,9 @@ amplify-authenticator {
 }
 .left{
   flex-basis: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   padding:20px 20px;
   box-shadow: var(--shadow-dark);
@@ -94,7 +97,7 @@ amplify-authenticator {
 	color:white;
 
 	&--large {
-		font-size: 4rem;
+		font-size: 5rem;
 		& + * {
 			margin-top: 1.5rem;
 		}
