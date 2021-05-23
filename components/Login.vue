@@ -8,9 +8,9 @@
           </div>
         <div class="right">
          <amplify-authenticator v-if="authState !== 'signedin'" class="signIn" />
-          <div v-if="authState === 'signedin' && user">
-         <div>Addesignup</div>
-       <sample/>
+          <div class="authenticated" v-if="authState === 'signedin' && user">
+          <update-profile :email="user.attributes.email"
+          :userId="user.attributes.sub" :username="user.username" />
      <button v-on:click="signOut">Sign Out</button>
     </div>
       </div>
@@ -21,8 +21,9 @@
 <script>
 import { onAuthUIStateChange } from '@aws-amplify/ui-components'
 import { Auth }  from 'aws-amplify';
+import UpdateProfile from '../components/UpdateProfile.vue';
     export default {
-
+components:{UpdateProfile},
        created() {
     onAuthUIStateChange((authState, authData) => {
       this.authState = authState;
@@ -32,6 +33,13 @@ import { Auth }  from 'aws-amplify';
   },
   data() {
     return { user: undefined, authState: undefined }
+  },
+  methods: {
+    signOut(){
+      console.log("clicked sign out");
+       Auth.signOut();
+       this.authState = undefined;
+    } 
   },
    beforeDestroy() {
     return onAuthUIStateChange;
@@ -56,6 +64,7 @@ amplify-authenticator {
     align-items: center;
     
     display:flex;
+
     height: 100vh;
     
     
@@ -122,11 +131,27 @@ amplify-authenticator {
     flex-grow: 1;
     height: 100%;
     display: flex;
+    
     justify-content: center;
     align-items: center;
      
    
     
+}
+.authenticated{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+button{
+  background-color: black;
+  border: none;
+  color: white;
+  height: 50px;
+  width: 60%;
+  margin-top: 40px;
 }
 
 

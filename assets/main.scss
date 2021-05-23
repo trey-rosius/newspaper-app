@@ -324,3 +324,24 @@ img {
 :focus {
 	outline: 0;
 }
+#preview {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #preview .profilepic {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+  #preview .postpic {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10%;
+    object-fit: cover;
+  }

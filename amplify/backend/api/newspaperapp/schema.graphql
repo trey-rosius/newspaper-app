@@ -1,0 +1,70 @@
+type User @model
+@auth (
+    rules: [
+      # allow all authenticated users ability to create a user
+      # allow owners ability to update and delete their posts
+      { allow: owner },
+
+      # allow all authenticated users to read users
+      { allow: private, operations: [read] },
+
+      # allow all guest users (not authenticated) to read users
+      { allow: public, operations: [read] }
+    ]
+  )
+
+{
+  id:ID!
+  username:String!
+  userType:UserType!
+  profilePicUrl:String!
+  email:String!
+  posts:[Post]@connection(keyName:"byUser",fields:["id"])
+}
+
+
+type Post @model @key(name: "byUser", fields: ["id"]) 
+ @auth (
+    rules: [
+      # allow all authenticated users ability to create posts
+      # allow owners ability to update and delete their posts
+      { allow: owner },
+
+      # allow all authenticated users to read posts
+      { allow: private, operations: [read] },
+
+      # allow all guest users (not authenticated) to read posts
+      { allow: public, operations: [read] }
+    ]
+  ){
+  id: ID!
+  title: String!
+  userId: ID!
+  postImageUrl:String!
+  postType:PostType!
+  postStatus:PostStatus!
+  user: User @connection(fields: ["id"])
+
+}
+enum UserType{
+  ADMIN,
+    AUTHOR,
+    EDITOR
+}
+enum PostType{
+   BUSINESS,
+   CARS,
+   ENTERTAINMENT,
+   FAMILY,
+   HEALTH,
+   POLITICS,
+   RELIGION,
+   SCIENCE
+
+}
+enum PostStatus{
+    CREATED,
+    UPDATED,
+    DELETED
+}
+

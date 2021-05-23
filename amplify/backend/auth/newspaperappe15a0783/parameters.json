@@ -1,6 +1,6 @@
 {
     "identityPoolName": "newspaperappe15a0783_identitypool_e15a0783",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "newspae15a0783",
     "userPoolName": "newspaperappe15a0783_userpool_e15a0783",
     "autoVerifiedAttributes": [
