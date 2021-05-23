@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "newspaperappc2bc5c61_identitypool_c2bc5c61",
+    "identityPoolName": "newspaperappe15a0783_identitypool_e15a0783",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "newspac2bc5c61",
-    "userPoolName": "newspaperappc2bc5c61_userpool_c2bc5c61",
+    "resourceNameTruncated": "newspae15a0783",
+    "userPoolName": "newspaperappe15a0783_userpool_e15a0783",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -20,7 +20,7 @@
     "requiredAttributes": [
         "email"
     ],
-    "userpoolClientGenerateSecret": true,
+    "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
         "email"
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "newspac2bc5c61_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "newspae15a0783_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "c2bc5c61",
-    "resourceName": "newspaperappc2bc5c61",
+    "sharedId": "e15a0783",
+    "resourceName": "newspaperappe15a0783",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

@@ -1,6 +1,6 @@
 {
   "auth": {
-    "newspaperappc2bc5c61": {
+    "newspaperappe15a0783": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

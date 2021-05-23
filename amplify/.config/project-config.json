@@ -1,17 +1,17 @@
 {
-  "projectName": "newspaperApp",
-  "version": "3.0",
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "newspaperapp",
+  "version": "3.1",
   "frontend": "javascript",
   "javascript": {
     "framework": "vue",
     "config": {
       "SourceDir": "src",
       "DistributionDir": "dist",
-      "BuildCommand": "npm run build",
+      "BuildCommand": "npm build",
       "StartCommand": "npm run serve"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }
