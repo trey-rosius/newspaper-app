@@ -9,7 +9,7 @@
         <div class="right">
          <amplify-authenticator v-if="authState !== 'signedin'" class="signIn" />
           <div v-if="authState === 'signedin' && user">
-         <div>Added login signup</div>
+         <div>Addesignup</div>
        <sample/>
      <button v-on:click="signOut">Sign Out</button>
     </div>
