@@ -23,7 +23,7 @@ type User @model
 }
 
 
-type Post @model @key(name: "byUser", fields: ["id"]) 
+type Post @model @key(name: "byUser", fields: ["userId"]) 
  @auth (
     rules: [
       # allow all authenticated users ability to create posts
@@ -39,11 +39,13 @@ type Post @model @key(name: "byUser", fields: ["id"])
   ){
   id: ID!
   title: String!
+  postText:String!
   userId: ID!
-  postImageUrl:String!
+  postImageUrl:String
+  image:Boolean!
   postType:PostType!
   postStatus:PostStatus!
-  user: User @connection(fields: ["id"])
+  user: User @connection(fields: ["userId"])
 
 }
 enum UserType{

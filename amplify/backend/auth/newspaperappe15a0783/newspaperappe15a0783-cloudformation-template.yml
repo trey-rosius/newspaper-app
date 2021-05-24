@@ -9,6 +9,18 @@ Parameters:
     Type: String
 
   
+  
+  
+  functionnewspaperappe15a0783PostConfirmationArn:
+    Type: String
+    Default: functionnewspaperappe15a0783PostConfirmationArn
+  
+  functionnewspaperappe15a0783PostConfirmationName:
+    Type: String
+    Default: functionnewspaperappe15a0783PostConfirmationName
+  
+  
+  
 
     
   identityPoolName:
@@ -129,6 +141,47 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+  
+  thirdPartyAuth:
+    Type: String
+            
+  
+  userPoolGroups:
+    Type: String
+            
+  
+  adminQueries:
+    Type: String
+            
+  triggers:
+    Type: String
+  
+            
+  
+  hostedUI:
+    Type: String
+            
+      
+  parentStack:
+    Type: String
+        
+  
+  breakCircularDependency:
+    Type: String
+            
+        
+  permissions:
+    Type: CommaDelimitedList
+      
+        
+  authProviders:
+    Type: CommaDelimitedList
+      
+            
+  authTriggerConnections:
+    Type: String
+  
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
   
@@ -219,6 +272,9 @@ Resources:
     Properties:
       ClientName: newspae15a0783_app_clientWeb
       
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
+      
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
     DependsOn: UserPool
@@ -228,6 +284,9 @@ Resources:
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
       ClientName: newspae15a0783_app_client
+      
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity

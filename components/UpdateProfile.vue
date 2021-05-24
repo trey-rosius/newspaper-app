@@ -75,7 +75,7 @@ import {createUser} from '../src/graphql/mutations';
                })
                this.loading = false;
                console.log("successfully uploaded");
-               this.$router.push({name:'home',params:{id: uuid}});
+               this.$router.push({name:'index',params:{id: uuid}});
            },
           
            onFileChange(e) {

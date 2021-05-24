@@ -11,7 +11,7 @@
           <div class="authenticated" v-if="authState === 'signedin' && user">
           <update-profile :email="user.attributes.email"
           :userId="user.attributes.sub" :username="user.username" />
-     <button v-on:click="signOut">Sign Out</button>
+     <button @click="signOut">Sign Out</button>
     </div>
       </div>
     </div>

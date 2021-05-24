@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "newspaperappe15a0783",
+  "functionName": "newspaperappe15a0783PostConfirmation",
+  "resourceName": "newspaperappe15a0783PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "newspaperappe15a0783PostConfirmation",
+  "skipEdit": true,
+  "GROUP": "NEWSAPI",
+  "enableCors": false
+}

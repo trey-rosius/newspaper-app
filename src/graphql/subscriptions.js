@@ -16,8 +16,10 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           title
+          postText
           userId
           postImageUrl
+          image
           postType
           postStatus
           createdAt
@@ -44,8 +46,10 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           title
+          postText
           userId
           postImageUrl
+          image
           postType
           postStatus
           createdAt
@@ -72,8 +76,10 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           title
+          postText
           userId
           postImageUrl
+          image
           postType
           postStatus
           createdAt
@@ -90,8 +96,10 @@ export const onCreatePost = /* GraphQL */ `
     onCreatePost {
       id
       title
+      postText
       userId
       postImageUrl
+      image
       postType
       postStatus
       createdAt
@@ -118,8 +126,10 @@ export const onUpdatePost = /* GraphQL */ `
     onUpdatePost {
       id
       title
+      postText
       userId
       postImageUrl
+      image
       postType
       postStatus
       createdAt
@@ -146,8 +156,10 @@ export const onDeletePost = /* GraphQL */ `
     onDeletePost {
       id
       title
+      postText
       userId
       postImageUrl
+      image
       postType
       postStatus
       createdAt

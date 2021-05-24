@@ -21,16 +21,26 @@
 		</svg>
 	</div>
 	<div class="header-middle">
-		<a href="#" class="header-link">Call Us (348) 981 872</a>
+		<a href="#" class="header-link">Call Us (237) 678 323 387</a>
 		<span>/</span>
-		<a href="#" class="header-link">hello@foxnews.com</a>
+		<a href="#" class="header-link">rosius@ghost.com</a>
 	</div>
 	<div class="header-right">
 	<nav class="header-nav">
-		<a href="#" class="header-link">Login</a>
-		<a href="#" class="header-link header-link--button">Get 1 year for $50 USD</a>
+
+ 
+		<a href="#" class="header-link" v-if="signedIn" @click="signUserOut">Logout</a>
+       <NuxtLink  to="/loginpage" class="header-link" v-else> Login </NuxtLink>
+       
+        
+	
+   
+		<nuxt-link :to="{name:'createArticle',params:{userId:user.id}}" class="header-link header-link--button">Write Article</nuxt-link>
 	</nav>
-		<button class="header-menu-button">Menu</button>
+ 
+       <img class="article-author-img" :src="user.profilePicUrl" alt="Profile Picture">
+    
+	
 		</div>
 </header>
 <main class="responsive-wrapper">
@@ -192,11 +202,84 @@
 </template>
 
 <script>
+import { onAuthUIStateChange } from '@aws-amplify/ui-components'
+import { Auth,API }  from 'aws-amplify';
+import {onCreatePost} from '../src/graphql/subscriptions';
+import {getUser,listPosts} from '../src/graphql/queries';
+
     export default {
-        
+         data() {
+    return { user: Object, 
+    posts:[],
+    authState: undefined,
+     signedIn:false }
+  },
+ async beforeCreate() {
+     
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      console.log(user.attributes.sub);
+      this.getUserDetails(user.attributes.sub);
+
+      this.signedIn = true
+    } catch (err) {
+      this.signedIn = false
+    }
+    
+ },
+
+  created() {
+   
+  this.getPosts();
+  this.subscribe();
+
+  },
+
+   methods: {
+        async getUserDetails(userId){
+         const userData =  await API.graphql({
+         query:getUser,
+         variables:{id: userId}
+       });
+       this.user =userData.data.getUser;
+console.log(this.user);
+    },
+    signUserOut(){
+      console.log("clicked sign out");
+       Auth.signOut();
+       
+       this.$router.push({name:'loginpage'});
+    } ,
+    async getPosts(){
+       const posts = await API.graphql({
+         query:listPosts
+       });
+       this.posts = posts.data.listPosts.items;
+       console.log("this is the post"+ posts.data.listPosts.items[0].user.profilePicUrl);
+     },
+     subscribe(){
+       API.graphql({query: onCreatePost})
+       .subscribe({
+         next:(eventData) =>{
+           let post = eventData.value.data.onCreatePost;
+           if(this.posts.some(item => item.title === post.title)) return; //remove duplicates
+           this.posts = [...this.posts,post];
+         }
+       });
+     }
+
+  },
+  
+
+
+       
     }
 </script>
 
 <style lang="scss" scoped>
-
+.profile-pic{
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+}
 </style>

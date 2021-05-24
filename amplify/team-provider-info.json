@@ -14,6 +14,13 @@
     "categories": {
       "auth": {
         "newspaperappe15a0783": {}
+      },
+      "function": {
+        "newspaperappe15a0783PostConfirmation": {
+          "GROUP": "NEWSAPI",
+          "deploymentBucketName": "amplify-amplifyf61302a66b154-staging-72029-deployment",
+          "s3Key": "amplify-builds/newspaperappe15a0783PostConfirmation-6858794f483246566544-build.zip"
+        }
       }
     }
   }

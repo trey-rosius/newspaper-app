@@ -16,8 +16,10 @@ export const getUser = /* GraphQL */ `
         items {
           id
           title
+          postText
           userId
           postImageUrl
+          image
           postType
           postStatus
           createdAt
@@ -58,8 +60,10 @@ export const getPost = /* GraphQL */ `
     getPost(id: $id) {
       id
       title
+      postText
       userId
       postImageUrl
+      image
       postType
       postStatus
       createdAt
@@ -91,8 +95,10 @@ export const listPosts = /* GraphQL */ `
       items {
         id
         title
+        postText
         userId
         postImageUrl
+        image
         postType
         postStatus
         createdAt
