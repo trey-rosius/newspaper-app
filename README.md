@@ -1,20 +1,7 @@
 # newspaperApp
+Building a serverless Web application on AWS, with amplify,vueJs/NuxtJS and CDK(python)
+The app showcases how to add AWS CDK to provide CI/CD pipelines.
+There's a blog series on how i developed this app at phatrabbitapps.com
+Here are some screenshots on how the app works
 
-## Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+![alt text](https://raw.githubusercontent.com/trey-rosius/newspaper-app/tree/master/assets/images/c.png)
